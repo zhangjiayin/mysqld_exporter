@@ -6,6 +6,8 @@ on:
       - "README.md"
       - ".github/workflows/container_description.yml"
     branches: [ main, master ]
+  workflow_dispatch: {}
+    
 
 permissions:
   contents: read
