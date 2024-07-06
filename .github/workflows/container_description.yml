@@ -14,12 +14,12 @@ jobs:
   PushDockerHubReadme:
     runs-on: ubuntu-latest
     name: Push README to Docker Hub
-    if: github.repository_owner == 'prometheus' || github.repository_owner == 'prometheus-community' # Don't run this workflow on forks.
+    if: github.repository_owner == 'zhangjiayin' || github.repository_owner == 'prometheus' || github.repository_owner == 'prometheus-community' # Don't run this workflow on forks.
     steps:
       - name: git checkout
         uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4.1.4
       - name: Set docker hub repo name
-        run: echo "DOCKER_REPO_NAME=$(make docker-repo-name)" >> $GITHUB_ENV
+        run: echo "DOCKER_REPO_NAME=$(make docker-repo-name DOCKER_REPO="jiayin")" >> $GITHUB_ENV
       - name: Push README to Dockerhub
         uses: christian-korneck/update-container-description-action@d36005551adeaba9698d8d67a296bd16fa91f8e8 # v1
         env:
